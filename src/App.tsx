@@ -366,7 +366,7 @@ export default function App() {
 
               <div className="mt-12 space-y-8">
                 <div className="flex items-center gap-6">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-primary">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white">
                     <Phone size={28} />
                   </div>
                   <div>
@@ -438,7 +438,7 @@ export default function App() {
                     placeholder="Any specific concerns?"
                   ></textarea>
                 </div>
-                <button className="w-full rounded-xl bg-primary py-4 font-bold text-white shadow-lg shadow-blue-900/20 transition-all hover:bg-primary-hover active:scale-[0.98]">
+                <button className="w-full rounded-xl bg-blue-600 py-4 font-bold text-white shadow-lg shadow-blue-900/40 transition-all hover:bg-blue-500 active:scale-[0.98]">
                   Send Request
                 </button>
               </form>
