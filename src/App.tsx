@@ -427,7 +427,6 @@ export default function App() {
           <div className="grid gap-20 lg:grid-cols-2">
             <div>
               <h2 className="text-sm font-bold uppercase tracking-widest text-blue-400 mb-6">Get in Touch</h2>
-              </p>
 
               <div className="mt-16 space-y-10">
                 <div className="flex items-center gap-8 group">
