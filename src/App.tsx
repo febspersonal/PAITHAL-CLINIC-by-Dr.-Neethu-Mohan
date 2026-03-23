@@ -97,24 +97,24 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       {/* Navigation */}
-      <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-primary shadow-lg' : 'bg-primary'}`}>
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
+      <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-white/90 backdrop-blur-md py-4'}`}>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-8">
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollToSection('home')}>
               <img 
                 src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png/v1/crop/x_34,y_10,w_466,h_456/fill/w_95,h_92,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2026-01-02-removebg-preview.png" 
                 alt="Paithal Clinic Logo" 
-                className="h-12 w-auto object-contain brightness-0 invert"
+                className="h-10 w-auto object-contain"
                 referrerPolicy="no-referrer"
               />
               <div className="flex flex-col">
-                <span className="text-[12px] font-bold tracking-tight text-white leading-none">Paithal Clinic</span>
-                <span className="text-[10px] font-medium text-white/70 uppercase tracking-widest mt-1">Dr. Neethu Mohan</span>
+                <span className="text-lg font-bold tracking-tight text-slate-900 leading-none">Paithal Clinic</span>
+                <span className="text-[10px] font-semibold text-primary uppercase tracking-widest mt-1">Dr. Neethu Mohan</span>
               </div>
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden items-center gap-6 lg:flex ml-4">
+            <div className="hidden items-center gap-8 lg:flex">
               {[
                 { label: 'Home', id: 'home' },
                 { label: 'Doctor', id: 'doctor' },
@@ -124,22 +124,30 @@ export default function App() {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-colors ${item.label === 'Home' ? 'bg-white/10 px-3 py-1 rounded-md text-white' : 'text-white/80 hover:text-white'}`}
+                  className="text-sm font-semibold text-slate-600 transition-colors hover:text-primary relative group"
                 >
                   {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                 </button>
               ))}
             </div>
           </div>
 
           <div className="hidden items-center gap-4 md:flex">
-            <div className="rounded-full bg-white px-6 py-2.5 text-sm font-bold text-slate-900 shadow-md">
-              Monday – Saturday: 5:00 PM – 7:00 PM
+            <div className="flex items-center gap-2 text-primary">
+              <Clock size={18} />
+              <span className="text-sm font-bold">Mon – Sat: 5:00 PM – 7:00 PM</span>
             </div>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-900/20 transition-all hover:bg-primary-hover active:scale-95"
+            >
+              Book Now
+            </button>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="text-white md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="text-slate-900 md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -151,9 +159,9 @@ export default function App() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="border-t border-white/10 bg-primary md:hidden"
+              className="border-t border-slate-100 bg-white md:hidden"
             >
-              <div className="flex flex-col gap-4 p-4">
+              <div className="flex flex-col gap-4 p-6">
                 {[
                   { label: 'Home', id: 'home' },
                   { label: 'Doctor', id: 'doctor' },
@@ -163,8 +171,11 @@ export default function App() {
                 ].map((item) => (
                   <button
                     key={item.label}
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-left text-lg font-medium text-white/90 hover:text-white"
+                    onClick={() => {
+                      scrollToSection(item.id);
+                      setIsMenuOpen(false);
+                    }}
+                    className="text-left text-lg font-semibold text-slate-900 hover:text-primary"
                   >
                     {item.label}
                   </button>
@@ -176,124 +187,93 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative flex min-h-[500px] flex-col md:block md:h-[500px] overflow-hidden pt-20 md:pt-0 bg-[#f1f4f9]">
-        {/* Desktop Background Image */}
-        <div className="absolute inset-0 z-0 hidden md:block">
-          <img 
-            src="https://static.wixstatic.com/media/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg/v1/fill/w_1920,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg" 
-            alt="Trusted Paediatric Care"
-            className="h-full w-full object-cover object-right md:object-center"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-transparent"></div>
-        </div>
-
-        {/* Mobile Layout: Reordered for mobile, standard for desktop */}
-        <div className="relative z-10 flex flex-col md:h-full md:flex-row md:items-start">
+      <section id="home" className="relative flex min-h-[600px] flex-col md:block md:h-[650px] overflow-hidden pt-20 md:pt-0 bg-white">
+        {/* Desktop Layout: Split View */}
+        <div className="mx-auto flex h-full max-w-7xl flex-col md:flex-row md:items-center">
           
-          {/* Desktop-only: Full Text Content */}
-          <div className="hidden md:block w-full px-8 pt-24 pb-10 bg-transparent text-left">
-            <div className="mx-auto max-w-7xl">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="max-w-3xl"
-              >
-                <span className="inline-block rounded-full bg-blue-50 px-4 py-1.5 text-sm font-semibold text-primary mb-6">
-                  Paediatric Specialty Clinic
-                </span>
-                <h1 className="text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-slate-900 mb-6">
-                  Trusted Paediatric Care <br className="hidden lg:block" />
-                  <span className="text-primary">for Your Little Ones</span>
-                </h1>
-                <p className="text-lg leading-relaxed text-slate-600 max-w-xl font-medium mb-10">
-                  At Paithal Clinic, we provide expert paediatric care in a nurturing environment, 
-                  ensuring your child receives the best healthcare tailored to their needs.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <button 
-                    onClick={() => scrollToSection('contact')}
-                    className="flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-bold text-white shadow-xl shadow-blue-900/20 transition-all hover:bg-primary-hover hover:-translate-y-0.5 active:scale-95"
-                  >
-                    Book Appointment <ChevronRight size={18} />
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection('services')}
-                    className="rounded-full border-2 border-slate-200 bg-white px-8 py-4 font-bold text-slate-700 transition-all hover:border-primary hover:text-primary active:scale-95"
-                  >
-                    Our Services
-                  </button>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Mobile-only: Image with Text Overlay */}
-          <div className="relative w-full md:hidden h-[250px] overflow-hidden">
-            <img 
-              src="https://static.wixstatic.com/media/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg/v1/fill/w_1920,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg" 
-              alt="Newborn Care" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 flex flex-col items-start justify-start bg-transparent p-8 text-left">
-              <span className="inline-block rounded-full bg-blue-50 px-4 py-1.5 text-[12px] font-semibold text-primary mb-4">
+          {/* Text Content */}
+          <div className="relative z-10 w-full px-4 pt-16 pb-10 md:w-1/2 md:px-8 md:pt-0">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-primary mb-8">
+                <span className="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
                 Paediatric Specialty Clinic
               </span>
-              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 drop-shadow-sm">
-                Trusted Paediatric Care
+              <h1 className="font-serif text-5xl lg:text-7xl font-semibold leading-[1.1] tracking-tight text-slate-900 mb-8">
+                Expert Care for <br />
+                <span className="italic text-primary">Your Little Ones</span>
               </h1>
-            </div>
+              <p className="text-xl leading-relaxed text-slate-600 max-w-lg font-medium mb-12">
+                At Paithal Clinic, we provide compassionate, expert paediatric care in a nurturing environment designed for your child's comfort.
+              </p>
+              <div className="flex flex-wrap gap-5">
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-white shadow-2xl shadow-blue-900/30 transition-all hover:bg-primary-hover hover:-translate-y-1 active:scale-95"
+                >
+                  Book Appointment <ChevronRight size={20} />
+                </button>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="rounded-full border-2 border-slate-200 bg-white px-10 py-5 text-lg font-bold text-slate-700 transition-all hover:border-primary hover:text-primary active:scale-95"
+                >
+                  Our Services
+                </button>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Mobile-only: Description and Buttons */}
-          <div className="w-full px-6 pt-8 pb-16 text-left md:hidden">
-            <p className="text-sm leading-relaxed text-slate-600 font-medium">
-              At Paithal Clinic, we provide expert paediatric care in a nurturing environment, 
-              ensuring your child receives the best healthcare tailored to their needs.
-            </p>
-            <div className="mt-10 flex flex-col gap-3">
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="flex items-center justify-start gap-2 rounded-full bg-primary px-8 py-4 font-bold text-white shadow-lg transition-all active:scale-95 w-fit"
-              >
-                Book Appointment <ChevronRight size={18} />
-              </button>
-            </div>
+          {/* Image Content */}
+          <div className="relative h-[400px] w-full md:h-full md:w-1/2">
+            <motion.div 
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2 }}
+              className="h-full w-full overflow-hidden md:rounded-bl-[100px]"
+            >
+              <img 
+                src="https://static.wixstatic.com/media/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg/v1/fill/w_1920,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg" 
+                alt="Trusted Paediatric Care"
+                className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent md:block hidden"></div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-white py-24">
+      <section id="about" className="bg-white py-32">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-primary">Who We Are</h2>
-            <div className="mt-2 h-1 w-12 bg-primary mx-auto rounded-full"></div>
-            <h3 className="mt-8 text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Who We Are</h2>
+            <h3 className="font-serif text-4xl md:text-5xl font-semibold text-slate-900 leading-tight mb-8">
               Dedicated Paediatric Care <br className="hidden md:block" />
-              for the Next Generation
+              for the <span className="italic text-primary">Next Generation</span>
             </h3>
-            <p className="mt-6 text-lg leading-relaxed text-slate-600 font-medium">
+            <p className="text-xl leading-relaxed text-slate-600 font-medium max-w-3xl mx-auto">
               Paithal Clinic is a premier paediatric specialty clinic located in Cherthala, Alappuzha, 
               led by Dr. Neethu Mohan. Our mission is to provide specialized healthcare for infants 
               and children, ensuring every visit is defined by professionalism, empathy, and expertise.
             </p>
           </div>
 
-          <div className="mt-20 grid gap-8 md:grid-cols-3">
+          <div className="mt-24 grid gap-10 md:grid-cols-3">
             {[
-              { title: "5-Star Rated", desc: "Highly recommended paediatric care in the region.", icon: ShieldCheck },
-              { title: "Child Friendly", desc: "A warm environment designed to make children feel safe.", icon: Baby },
-              { title: "Ethical Care", desc: "Transparent and evidence-based medical treatments.", icon: HeartPulse }
+              { title: "5-Star Rated", desc: "Highly recommended paediatric care in the region.", icon: ShieldCheck, color: "bg-blue-50 text-blue-600" },
+              { title: "Child Friendly", desc: "A warm environment designed to make children feel safe.", icon: Baby, color: "bg-amber-50 text-amber-600" },
+              { title: "Ethical Care", desc: "Transparent and evidence-based medical treatments.", icon: HeartPulse, color: "bg-emerald-50 text-emerald-600" }
             ].map((item, i) => (
-              <div key={i} className="rounded-2xl bg-slate-50 p-8 transition-all hover:shadow-lg">
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
-                  <item.icon size={28} />
+              <div key={i} className="group rounded-3xl bg-slate-50 p-10 transition-all hover:bg-white hover:shadow-2xl hover:shadow-slate-200">
+                <div className={`mb-8 flex h-16 w-16 items-center justify-center rounded-2xl ${item.color} shadow-sm transition-transform group-hover:scale-110`}>
+                  <item.icon size={32} />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">{item.title}</h3>
-                <p className="mt-3 text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
+                <p className="text-lg text-slate-600 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -317,16 +297,15 @@ export default function App() {
             </div>
 
             <div className="order-1 md:order-2">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-primary">Meet the Doctor</h2>
-              <div className="mt-2 h-1 w-12 bg-primary rounded-full"></div>
+              <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Meet the Doctor</h2>
               
               <div className="mt-8">
-                <h3 className="text-3xl font-bold text-slate-900">Dr. Neethu Mohan</h3>
-                <p className="text-lg font-semibold text-primary mt-1">MBBS, DNB (Paediatrics)</p>
+                <h3 className="font-serif text-4xl font-semibold text-slate-900">Dr. Neethu Mohan</h3>
+                <p className="text-xl font-semibold text-primary mt-2">MBBS, DNB (Paediatrics)</p>
                 <p className="text-sm text-slate-500 mt-1">Reg. No: 49862</p>
               </div>
 
-              <p className="mt-6 text-base leading-relaxed text-slate-600">
+              <p className="mt-8 text-lg leading-relaxed text-slate-600">
                 An experienced and compassionate paediatrician dedicated to child healthcare. 
                 Dr. Neethu Mohan believes in building strong relationships with parents while 
                 providing evidence-based medical care tailored to each child's needs.
@@ -338,8 +317,8 @@ export default function App() {
                     <GraduationCap size={24} />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-slate-900">Professional Qualification</h4>
-                    <ul className="mt-3 space-y-3 text-base text-slate-600">
+                    <h4 className="font-serif text-xl font-bold text-slate-900">Professional Qualification</h4>
+                    <ul className="mt-4 space-y-3 text-base text-slate-600">
                       {EDUCATION.map((edu, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></span>
@@ -356,18 +335,18 @@ export default function App() {
                   <div className="mt-1 rounded-lg bg-emerald-100 p-2 text-emerald-600">
                     <Briefcase size={24} />
                   </div>
-                  <div className="space-y-6">
+                  <div className="space-y-8">
                     <div>
-                      <h4 className="text-lg font-bold text-slate-900">Current Practice</h4>
-                      <div className="mt-3 text-base text-slate-600">
+                      <h4 className="font-serif text-xl font-bold text-slate-900">Current Practice</h4>
+                      <div className="mt-4 text-base text-slate-600">
                         <p className="font-bold text-slate-800">{EXPERIENCE.current.role}</p>
                         <p>{EXPERIENCE.current.hospital}</p>
                         <p className="mt-2 font-semibold text-primary">OPD Hours: {EXPERIENCE.current.hours}</p>
                       </div>
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-slate-900">Previous Experiences</h4>
-                      <ul className="mt-3 space-y-3 text-base text-slate-600">
+                      <h4 className="font-serif text-xl font-bold text-slate-900">Previous Experiences</h4>
+                      <ul className="mt-4 space-y-3 text-base text-slate-600">
                         {EXPERIENCE.previous.map((exp, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 mt-2 flex-shrink-0"></span>
@@ -385,15 +364,14 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="bg-slate-50 py-24">
+      <section id="services" className="bg-slate-50 py-32">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="text-center">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-primary">Our Services</h2>
-            <div className="mt-2 h-1 w-12 bg-primary mx-auto rounded-full"></div>
-            <p className="mt-6 text-3xl font-bold text-slate-900">Comprehensive healthcare for your little ones.</p>
+          <div className="text-center mb-20">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Our Services</h2>
+            <p className="font-serif text-4xl font-semibold text-slate-900">Comprehensive healthcare for your little ones.</p>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((service, i) => (
               <motion.div
                 key={i}
@@ -401,13 +379,13 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:border-blue-100 hover:shadow-xl"
+                className="group rounded-3xl border border-slate-100 bg-white p-10 shadow-sm transition-all hover:shadow-2xl hover:shadow-blue-900/5"
               >
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                  <service.icon size={28} />
+                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-primary transition-all group-hover:bg-primary group-hover:text-white group-hover:scale-110">
+                  <service.icon size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
-                <p className="mt-4 text-base leading-relaxed text-slate-600">{service.description}</p>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
+                <p className="text-lg leading-relaxed text-slate-600">{service.description}</p>
               </motion.div>
             ))}
           </div>
@@ -415,90 +393,94 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="bg-slate-900 py-24 text-white">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="grid gap-16 lg:grid-cols-2">
+      <section id="contact" className="bg-slate-900 py-32 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 -mr-32 -mt-32 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 -ml-32 -mb-32 h-96 w-96 rounded-full bg-emerald-600/10 blur-3xl"></div>
+        
+        <div className="mx-auto max-w-7xl px-4 md:px-8 relative z-10">
+          <div className="grid gap-20 lg:grid-cols-2">
             <div>
-              <h2 className="text-sm font-bold uppercase tracking-widest text-blue-400">Get in Touch</h2>
-              <p className="mt-6 text-3xl font-bold text-white">
-                We are here to help. Reach out to us for appointments or any enquiries.
+              <h2 className="text-sm font-bold uppercase tracking-widest text-blue-400 mb-6">Get in Touch</h2>
+              <p className="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight">
+                We are here to help. <br />
+                <span className="text-blue-400 italic">Reach out to us</span> for appointments.
               </p>
 
-              <div className="mt-12 space-y-8">
-                <div className="flex items-center gap-6">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white">
-                    <Phone size={28} />
+              <div className="mt-16 space-y-10">
+                <div className="flex items-center gap-8 group">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-white transition-all group-hover:bg-blue-600 group-hover:scale-110">
+                    <Phone size={32} />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-400">Call Us</p>
-                    <p className="mt-1 text-xl font-bold text-white">+91 85472 25042</p>
+                    <p className="text-sm font-medium text-slate-400 uppercase tracking-wider">Call Us</p>
+                    <p className="mt-2 text-2xl font-bold text-white tracking-tight">+91 85472 25042</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-6">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-emerald-400">
-                    <MapPin size={28} />
+                <div className="flex items-center gap-8 group">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-emerald-400 transition-all group-hover:bg-emerald-600 group-hover:text-white group-hover:scale-110">
+                    <MapPin size={32} />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-400">Visit Us</p>
-                    <p className="mt-1 text-lg font-bold text-white">
+                    <p className="text-sm font-medium text-slate-400 uppercase tracking-wider">Visit Us</p>
+                    <p className="mt-2 text-xl font-bold text-white leading-relaxed">
                       East of Town LP School, Chakkarakulam<br />
                       Cherthala, Kerala – 688524
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-6">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-amber-400">
-                    <Clock size={28} />
+                <div className="flex items-center gap-8 group">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-amber-400 transition-all group-hover:bg-amber-600 group-hover:text-white group-hover:scale-110">
+                    <Clock size={32} />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-400">Clinic Hours</p>
-                    <p className="mt-1 text-lg font-bold text-white">Mon – Sat: 5:00 PM – 7:00 PM</p>
-                    <p className="text-sm text-slate-500 italic">Sunday: Closed</p>
+                    <p className="text-sm font-medium text-slate-400 uppercase tracking-wider">Clinic Hours</p>
+                    <p className="mt-2 text-xl font-bold text-white">Mon – Sat: 5:00 PM – 7:00 PM</p>
+                    <p className="mt-1 text-sm text-slate-500 italic">Sunday: Closed</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-3xl bg-white/5 p-8 backdrop-blur-sm">
-              <h3 className="text-xl font-bold text-white">Book an Appointment</h3>
-              <form className="mt-8 space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-300">Parent Name</label>
+            <div className="rounded-[40px] bg-white/5 p-10 md:p-12 backdrop-blur-xl border border-white/10 shadow-2xl">
+              <h3 className="font-serif text-3xl font-semibold text-white mb-8">Book an Appointment</h3>
+              <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid gap-8 md:grid-cols-2">
+                  <div className="space-y-3">
+                    <label className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Parent Name</label>
                     <input 
                       type="text" 
-                      className="w-full rounded-xl bg-white/10 px-4 py-3 text-white outline-none ring-1 ring-white/20 transition-all focus:ring-2 focus:ring-blue-500 text-base"
+                      className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-lg placeholder:text-slate-600"
                       placeholder="Your Name"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-300">Child's Name</label>
+                  <div className="space-y-3">
+                    <label className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Child's Name</label>
                     <input 
                       type="text" 
-                      className="w-full rounded-xl bg-white/10 px-4 py-3 text-white outline-none ring-1 ring-white/20 transition-all focus:ring-2 focus:ring-blue-500 text-base"
+                      className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-lg placeholder:text-slate-600"
                       placeholder="Child's Name"
                     />
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-300">Phone Number</label>
+                <div className="space-y-3">
+                  <label className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Phone Number</label>
                   <input 
                     type="tel" 
-                    className="w-full rounded-xl bg-white/10 px-4 py-3 text-white outline-none ring-1 ring-white/20 transition-all focus:ring-2 focus:ring-blue-500 text-base"
+                    className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-lg placeholder:text-slate-600"
                     placeholder="Your Phone Number"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-300">Message (Optional)</label>
+                <div className="space-y-3">
+                  <label className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Message (Optional)</label>
                   <textarea 
                     rows={4}
-                    className="w-full rounded-xl bg-white/10 px-4 py-3 text-white outline-none ring-1 ring-white/20 transition-all focus:ring-2 focus:ring-primary text-base"
+                    className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-lg placeholder:text-slate-600 resize-none"
                     placeholder="Any specific concerns?"
                   ></textarea>
                 </div>
-                <button className="w-full rounded-xl bg-blue-600 py-4 font-bold text-white shadow-lg shadow-blue-900/40 transition-all hover:bg-blue-500 active:scale-[0.98]">
+                <button className="w-full rounded-2xl bg-blue-600 py-5 font-bold text-white text-lg shadow-2xl shadow-blue-900/50 transition-all hover:bg-blue-500 hover:-translate-y-1 active:scale-[0.98]">
                   Send Request
                 </button>
               </form>
@@ -508,20 +490,26 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-950 py-12 text-center text-slate-500">
+      <footer className="bg-slate-950 py-20 text-slate-500 border-t border-white/5">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex items-center gap-3">
               <img 
                 src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png/v1/crop/x_34,y_10,w_466,h_456/fill/w_95,h_92,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2026-01-02-removebg-preview.png" 
                 alt="Paithal Clinic Logo" 
-                className="h-10 w-auto object-contain brightness-0 invert opacity-80"
+                className="h-12 w-auto object-contain brightness-0 invert opacity-90"
                 referrerPolicy="no-referrer"
               />
-              <span className="text-lg font-bold tracking-tight text-white">Paithal Clinic</span>
+              <div className="text-left">
+                <span className="block text-xl font-bold tracking-tight text-white">Paithal Clinic</span>
+                <span className="block text-xs uppercase tracking-widest text-slate-600">Paediatric Specialty Clinic</span>
+              </div>
             </div>
-            <p className="text-sm">© {new Date().getFullYear()} Paithal Clinic. All rights reserved.</p>
-            <p className="text-xs">Healthy children, happy families.</p>
+            
+            <div className="text-center md:text-right">
+              <p className="text-sm text-slate-400">© {new Date().getFullYear()} Paithal Clinic. All rights reserved.</p>
+              <p className="mt-1 text-xs text-slate-600 italic font-serif">Healthy children, happy families.</p>
+            </div>
           </div>
         </div>
       </footer>
