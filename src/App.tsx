@@ -20,32 +20,33 @@ import {
 const SERVICES = [
   {
     title: "Consultation",
-    description: "Personalized and thoughtful approach to your child's healthcare with careful clinical evaluation.",
-    icon: Stethoscope
+    description: "As a Paediatric specialist, my consultation service is centered on providing a personalized and thoughtful approach to your child’s healthcare. I am committed to offering individual attention during every visit, ensuring that each child receives a careful clinical evaluation tailored to their unique needs and stage of development.\n\nDuring the consultation, I take time to listen attentively to parents’ concerns, conduct a thorough examination, and provide clear, comprehensive explanations about your child’s health. My goal is not only to diagnose and treat but also to guide and reassure families with honest, evidence-based medical advice.\n\nTogether, we will address your questions, monitor your child’s growth and well-being, and foster a deeper understanding of their health — empowering you to make informed decisions with confidence and peace of mind.",
+    icon: Stethoscope,
+    featured: true
   },
   {
-    title: "Growth & Development",
-    description: "Regular assessment of physical, emotional, and developmental milestones at every stage.",
+    title: "Growth & Development Monitoring",
+    description: "Regular assessment of physical, emotional, and developmental milestones. Early identification and guidance to ensure healthy growth at every stage.",
     icon: Baby
   },
   {
-    title: "Immune Health",
-    description: "Evidence-based guidance to help strengthen immunity and prevent common illnesses.",
+    title: "Immune Health Guidance",
+    description: "Personalized medical consultation focused on supporting your child’s immune health. Evidence-based guidance is offered to help strengthen immunity, prevent common illnesses, and promote overall well-being at every stage of childhood.",
     icon: ShieldCheck
   },
   {
-    title: "Fever & Infection",
-    description: "Accurate diagnosis and effective treatment for fevers and common paediatric infections.",
+    title: "Fever & Infection Management",
+    description: "Accurate diagnosis and effective treatment for fevers and common infections. Prompt care to ensure quick recovery and comfort for your child.",
     icon: Thermometer
   },
   {
-    title: "Newborn Care",
-    description: "Specialized care for infants during their crucial early months, monitoring feeding and growth.",
+    title: "Newborn Care & Infant Checkups",
+    description: "Specialized care for newborns and infants during their crucial early months. Monitoring feeding, growth, immunity, and developmental progress.",
     icon: HeartPulse
   },
   {
-    title: "Parental Guidance",
-    description: "Dedicated time for parents to discuss concerns and receive expert medical advice.",
+    title: "Parental Guidance & Counseling",
+    description: "Dedicated time for parents to discuss concerns, receive expert medical advice, and gain confidence in managing their child’s health and well-being.",
     icon: Users
   }
 ];
@@ -325,7 +326,7 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="bg-white py-24">
+      <section id="services" className="bg-slate-50 py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Our Services</h2>
@@ -333,11 +334,38 @@ export default function App() {
             <p className="mt-6 text-lg text-slate-600">Comprehensive healthcare for your little ones.</p>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((service, i) => (
+          {/* Featured Service: Consultation */}
+          {SERVICES.filter(s => s.featured).map((service, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-16 rounded-3xl bg-white p-8 shadow-xl shadow-blue-900/5 md:p-12 lg:flex lg:items-center lg:gap-12"
+            >
+              <div className="mb-8 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-primary lg:mb-0">
+                <service.icon size={40} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 md:text-3xl">{service.title}</h3>
+                <div className="mt-6 space-y-4 text-lg leading-relaxed text-slate-600">
+                  {service.description.split('\n\n').map((para, idx) => (
+                    <p key={idx}>{para}</p>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Other Services Grid */}
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            {SERVICES.filter(s => !s.featured).map((service, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -5 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
                 className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:border-blue-100 hover:shadow-xl"
               >
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
