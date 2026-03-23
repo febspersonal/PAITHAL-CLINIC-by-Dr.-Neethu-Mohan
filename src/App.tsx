@@ -159,7 +159,7 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden pt-48">
+      <section id="home" className="relative flex h-[600px] items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://static.wixstatic.com/media/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg/v1/fill/w_1920,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg" 
@@ -167,7 +167,7 @@ export default function App() {
             className="h-full w-full object-cover object-right md:object-center"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent md:from-white/90 md:via-white/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent md:from-white/80 md:via-white/30"></div>
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8 w-full">
@@ -180,23 +180,23 @@ export default function App() {
               <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary mb-4">
                 Paediatric Specialty Clinic
               </span>
-              <h1 className="text-5xl font-bold leading-tight tracking-tight text-slate-900 md:text-8xl italic font-serif">
+              <h1 className="text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-6xl italic font-serif">
                 Trusted Paediatric Care
               </h1>
-              <p className="mt-8 text-xl leading-relaxed text-slate-700 max-w-lg">
+              <p className="mt-6 text-lg leading-relaxed text-slate-700 max-w-lg">
                 At Paithal Clinic, we provide expert paediatric care in a nurturing environment, 
                 ensuring your child receives the best healthcare tailored to their needs.
               </p>
-              <div className="mt-12 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-4">
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="flex items-center gap-2 rounded-full bg-primary px-10 py-4 font-bold text-white shadow-xl shadow-blue-900/20 transition-all hover:bg-primary-hover hover:-translate-y-1"
+                  className="flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 font-bold text-white shadow-lg shadow-blue-900/10 transition-all hover:bg-primary-hover hover:-translate-y-0.5"
                 >
-                  Book Appointment <ChevronRight size={20} />
+                  Book Appointment <ChevronRight size={18} />
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="rounded-full border-2 border-slate-300 bg-white/50 backdrop-blur-sm px-10 py-4 font-bold text-slate-700 transition-all hover:border-primary hover:text-primary"
+                  className="rounded-full border-2 border-slate-200 bg-white/40 backdrop-blur-sm px-8 py-3.5 font-bold text-slate-700 transition-all hover:border-primary hover:text-primary"
                 >
                   Our Services
                 </button>
