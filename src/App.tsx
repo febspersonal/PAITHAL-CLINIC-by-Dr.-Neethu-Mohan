@@ -164,7 +164,7 @@ export default function App() {
           <img 
             src="https://static.wixstatic.com/media/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg/v1/fill/w_1920,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg" 
             alt="Background"
-            className="h-full w-full object-cover object-right md:object-center"
+            className="h-full w-full object-cover object-[center_80%] md:object-[center_70%]"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent md:from-white/80 md:via-white/30"></div>
