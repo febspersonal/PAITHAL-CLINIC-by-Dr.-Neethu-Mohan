@@ -94,9 +94,12 @@ export default function App() {
       <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white/80 shadow-md backdrop-blur-md' : 'bg-transparent'}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
           <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-200">
-              <Baby size={24} />
-            </div>
+            <img 
+              src="https://storage.googleapis.com/mcl-dev-public-assets/paithal-logo.png" 
+              alt="Paithal Clinic Logo" 
+              className="h-12 w-auto object-contain"
+              referrerPolicy="no-referrer"
+            />
             <span className="text-xl font-bold tracking-tight text-slate-800">Paithal Clinic</span>
           </div>
 
@@ -106,14 +109,14 @@ export default function App() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600"
+                className="text-sm font-medium text-slate-600 transition-colors hover:text-primary"
               >
                 {item}
               </button>
             ))}
             <button 
               onClick={() => scrollToSection('contact')}
-              className="rounded-full bg-blue-600 px-6 py-2 text-sm font-semibold text-white shadow-md shadow-blue-200 transition-all hover:bg-blue-700 hover:shadow-lg active:scale-95"
+              className="rounded-full bg-primary px-6 py-2 text-sm font-semibold text-white shadow-md shadow-blue-200 transition-all hover:bg-primary-hover hover:shadow-lg active:scale-95"
             >
               Book Appointment
             </button>
@@ -165,11 +168,11 @@ export default function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-bold uppercase tracking-wider text-blue-700">
+              <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary">
                 Paediatric Specialty Clinic
               </span>
               <h1 className="mt-6 text-5xl font-bold leading-tight tracking-tight text-slate-900 md:text-7xl">
-                Trusted <span className="text-blue-600">Paediatric</span> Care
+                Trusted <span className="text-primary">Paediatric</span> Care
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-slate-600">
                 At Paithal Clinic, we provide expert paediatric care in a nurturing environment, 
@@ -178,13 +181,13 @@ export default function App() {
               <div className="mt-10 flex flex-wrap gap-4">
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="flex items-center gap-2 rounded-full bg-blue-600 px-8 py-4 font-bold text-white shadow-xl shadow-blue-200 transition-all hover:bg-blue-700 hover:-translate-y-1"
+                  className="flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-bold text-white shadow-xl shadow-blue-200 transition-all hover:bg-primary-hover hover:-translate-y-1"
                 >
                   Book Appointment <ChevronRight size={20} />
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="rounded-full border-2 border-slate-200 bg-white px-8 py-4 font-bold text-slate-700 transition-all hover:border-blue-600 hover:text-blue-600"
+                  className="rounded-full border-2 border-slate-200 bg-white px-8 py-4 font-bold text-slate-700 transition-all hover:border-primary hover:text-primary"
                 >
                   Our Services
                 </button>
@@ -244,7 +247,7 @@ export default function App() {
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Who We Are</h2>
-            <div className="mt-4 h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+            <div className="mt-4 h-1 w-20 bg-primary mx-auto rounded-full"></div>
             <p className="mt-8 text-xl leading-relaxed text-slate-600">
               Paithal Clinic is a dedicated Paediatric specialty clinic located in Cherthala, Alappuzha, led by Dr. Neethu Mohan. 
               Our mission is to provide specialized healthcare for infants and children, ensuring every visit encompasses 
@@ -259,7 +262,7 @@ export default function App() {
               { title: "Ethical Care", desc: "Transparent and evidence-based medical treatments.", icon: HeartPulse }
             ].map((item, i) => (
               <div key={i} className="rounded-2xl bg-slate-50 p-8 transition-all hover:shadow-lg">
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white text-blue-600 shadow-sm">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
                   <item.icon size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
@@ -288,10 +291,10 @@ export default function App() {
 
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Meet the Doctor</h2>
-              <div className="mt-4 h-1 w-20 bg-blue-600 rounded-full"></div>
+              <div className="mt-4 h-1 w-20 bg-primary rounded-full"></div>
               
               <div className="mt-8">
-                <h3 className="text-2xl font-bold text-blue-600">Dr. Neethu Mohan</h3>
+                <h3 className="text-2xl font-bold text-primary">Dr. Neethu Mohan</h3>
                 <p className="text-lg font-semibold text-slate-500">MBBS, DNB (PAEDIATRICS)</p>
                 <p className="text-sm text-slate-400">Reg. No: 49862</p>
               </div>
@@ -304,7 +307,7 @@ export default function App() {
 
               <div className="mt-10 space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 rounded-lg bg-blue-100 p-2 text-blue-600">
+                  <div className="mt-1 rounded-lg bg-blue-100 p-2 text-primary">
                     <GraduationCap size={20} />
                   </div>
                   <div>
@@ -346,7 +349,7 @@ export default function App() {
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Our Services</h2>
-            <div className="mt-4 h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+            <div className="mt-4 h-1 w-20 bg-primary mx-auto rounded-full"></div>
             <p className="mt-6 text-lg text-slate-600">Comprehensive healthcare for your little ones.</p>
           </div>
 
@@ -357,7 +360,7 @@ export default function App() {
                 whileHover={{ y: -5 }}
                 className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:border-blue-100 hover:shadow-xl"
               >
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                   <service.icon size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
@@ -380,7 +383,7 @@ export default function App() {
 
               <div className="mt-12 space-y-8">
                 <div className="flex items-center gap-6">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-blue-400">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-primary">
                     <Phone size={28} />
                   </div>
                   <div>
@@ -448,11 +451,11 @@ export default function App() {
                   <label className="text-sm font-medium text-slate-300">Message (Optional)</label>
                   <textarea 
                     rows={4}
-                    className="w-full rounded-xl bg-white/10 px-4 py-3 text-white outline-none ring-1 ring-white/20 transition-all focus:ring-2 focus:ring-blue-500"
+                    className="w-full rounded-xl bg-white/10 px-4 py-3 text-white outline-none ring-1 ring-white/20 transition-all focus:ring-2 focus:ring-primary"
                     placeholder="Any specific concerns?"
                   ></textarea>
                 </div>
-                <button className="w-full rounded-xl bg-blue-600 py-4 font-bold text-white shadow-lg shadow-blue-900/20 transition-all hover:bg-blue-700 active:scale-[0.98]">
+                <button className="w-full rounded-xl bg-primary py-4 font-bold text-white shadow-lg shadow-blue-900/20 transition-all hover:bg-primary-hover active:scale-[0.98]">
                   Send Request
                 </button>
               </form>
@@ -466,9 +469,12 @@ export default function App() {
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
-                <Baby size={18} />
-              </div>
+              <img 
+                src="https://storage.googleapis.com/mcl-dev-public-assets/paithal-logo.png" 
+                alt="Paithal Clinic Logo" 
+                className="h-10 w-auto object-contain brightness-0 invert opacity-80"
+                referrerPolicy="no-referrer"
+              />
               <span className="text-lg font-bold tracking-tight text-white">Paithal Clinic</span>
             </div>
             <p className="text-sm">© {new Date().getFullYear()} Paithal Clinic. All rights reserved.</p>
