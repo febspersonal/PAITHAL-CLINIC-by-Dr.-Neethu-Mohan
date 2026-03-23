@@ -20,9 +20,8 @@ import {
 const SERVICES = [
   {
     title: "Consultation",
-    description: "As a Paediatric specialist, my consultation service is centered on providing a personalized and thoughtful approach to your child’s healthcare. I am committed to offering individual attention during every visit, ensuring that each child receives a careful clinical evaluation tailored to their unique needs and stage of development.\n\nDuring the consultation, I take time to listen attentively to parents’ concerns, conduct a thorough examination, and provide clear, comprehensive explanations about your child’s health. My goal is not only to diagnose and treat but also to guide and reassure families with honest, evidence-based medical advice.\n\nTogether, we will address your questions, monitor your child’s growth and well-being, and foster a deeper understanding of their health — empowering you to make informed decisions with confidence and peace of mind.",
-    icon: Stethoscope,
-    featured: true
+    description: "Personalized paediatric care with a focus on individual attention and careful clinical evaluation. I provide evidence-based medical advice to empower families in making informed health decisions.",
+    icon: Stethoscope
   },
   {
     title: "Growth & Development Monitoring",
@@ -31,7 +30,7 @@ const SERVICES = [
   },
   {
     title: "Immune Health Guidance",
-    description: "Personalized medical consultation focused on supporting your child’s immune health. Evidence-based guidance is offered to help strengthen immunity, prevent common illnesses, and promote overall well-being at every stage of childhood.",
+    description: "Personalized medical consultation focused on supporting your child’s immune health. Evidence-based guidance is offered to help strengthen immunity and prevent common illnesses.",
     icon: ShieldCheck
   },
   {
@@ -334,32 +333,8 @@ export default function App() {
             <p className="mt-6 text-lg text-slate-600">Comprehensive healthcare for your little ones.</p>
           </div>
 
-          {/* Featured Service: Consultation */}
-          {SERVICES.filter(s => s.featured).map((service, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mt-16 rounded-3xl bg-white p-8 shadow-xl shadow-blue-900/5 md:p-12 lg:flex lg:items-center lg:gap-12"
-            >
-              <div className="mb-8 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-primary lg:mb-0">
-                <service.icon size={40} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 md:text-3xl">{service.title}</h3>
-                <div className="mt-6 space-y-4 text-lg leading-relaxed text-slate-600">
-                  {service.description.split('\n\n').map((para, idx) => (
-                    <p key={idx}>{para}</p>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-
-          {/* Other Services Grid */}
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
-            {SERVICES.filter(s => !s.featured).map((service, i) => (
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((service, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
