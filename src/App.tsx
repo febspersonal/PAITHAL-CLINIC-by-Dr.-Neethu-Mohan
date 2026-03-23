@@ -429,21 +429,21 @@ export default function App() {
               <h2 className="text-sm font-bold uppercase tracking-widest text-blue-400 mb-6">Get in Touch</h2>
 
               <div className="mt-16 space-y-10">
-                <div className="flex items-center gap-8 group">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-white transition-all group-hover:bg-blue-600 group-hover:scale-110">
+                <div className="flex items-start gap-8 group">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-blue-400 transition-all group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 flex-shrink-0">
                     <Phone size={32} />
                   </div>
-                  <div>
+                  <div className="pt-1">
                     <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Call Us</p>
-                    <p className="mt-2 text-2lg font-bold text-white tracking-tight">+91 85472 25042</p>
+                    <p className="mt-2 text-lg font-bold text-white tracking-tight">+91 85472 25042</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-8 group">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-emerald-400 transition-all group-hover:bg-emerald-600 group-hover:text-white group-hover:scale-110">
+                <div className="flex items-start gap-8 group">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-blue-400 transition-all group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 flex-shrink-0">
                     <MapPin size={32} />
                   </div>
-                  <div>
+                  <div className="pt-1">
                     <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Visit Us</p>
                     <p className="mt-2 text-lg font-bold text-white leading-relaxed">
                       East of Town LP School, Chakkarakulam<br />
@@ -452,13 +452,13 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-8 group">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-amber-400 transition-all group-hover:bg-amber-600 group-hover:text-white group-hover:scale-110">
+                <div className="flex items-start gap-8 group">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-blue-400 transition-all group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 flex-shrink-0">
                     <Clock size={32} />
                   </div>
-                  <div>
+                  <div className="pt-1">
                     <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Clinic Hours</p>
-                    <p className="mt-2 text-lg font-medium text-white -white">Mon – Sat: 5:00 PM – 7:00 PM</p>
+                    <p className="mt-2 text-lg font-bold text-white">Mon – Sat: 5:00 PM – 7:00 PM</p>
                     <p className="mt-1 text-sm text-slate-500 italic">Sunday: Closed</p>
                   </div>
                 </div>
