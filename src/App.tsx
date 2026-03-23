@@ -95,7 +95,7 @@ export default function App() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
           <div className="flex items-center gap-2">
             <img 
-              src="https://storage.googleapis.com/mcl-dev-public-assets/paithal-logo.png" 
+              src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png" 
               alt="Paithal Clinic Logo" 
               className="h-12 w-auto object-contain"
               referrerPolicy="no-referrer"
@@ -470,7 +470,7 @@ export default function App() {
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
               <img 
-                src="https://storage.googleapis.com/mcl-dev-public-assets/paithal-logo.png" 
+                src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png" 
                 alt="Paithal Clinic Logo" 
                 className="h-10 w-auto object-contain brightness-0 invert opacity-80"
                 referrerPolicy="no-referrer"
