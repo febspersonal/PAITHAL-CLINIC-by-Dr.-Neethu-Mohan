@@ -19,11 +19,6 @@ import {
 
 const SERVICES = [
   {
-    title: "Consultation",
-    description: "Personalized paediatric care with a focus on individual attention and careful clinical evaluation. I provide evidence-based medical advice to empower families in making informed health decisions.",
-    icon: Stethoscope
-  },
-  {
     title: "Growth & Development Monitoring",
     description: "Regular assessment of physical, emotional, and developmental milestones. Early identification and guidance to ensure healthy growth at every stage.",
     icon: Baby
@@ -97,19 +92,19 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       {/* Navigation */}
-      <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-white/90 backdrop-blur-md py-4'}`}>
+      <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-primary shadow-xl py-2' : 'bg-primary/95 backdrop-blur-md py-4 shadow-md'}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-8">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollToSection('home')}>
               <img 
                 src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png/v1/crop/x_34,y_10,w_466,h_456/fill/w_95,h_92,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2026-01-02-removebg-preview.png" 
                 alt="Paithal Clinic Logo" 
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto object-contain brightness-0 invert"
                 referrerPolicy="no-referrer"
               />
               <div className="flex flex-col">
-                <span className="text-lg font-bold tracking-tight text-slate-900 leading-none">Paithal Clinic</span>
-                <span className="text-[10px] font-semibold text-primary uppercase tracking-widest mt-1">Dr. Neethu Mohan</span>
+                <span className="text-lg font-bold tracking-tight text-white leading-none">Paithal Clinic</span>
+                <span className="text-[10px] font-semibold text-blue-200 uppercase tracking-widest mt-1">Dr. Neethu Mohan</span>
               </div>
             </div>
 
@@ -124,31 +119,31 @@ export default function App() {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-sm font-semibold text-slate-600 transition-colors hover:text-primary relative group"
+                  className="text-sm font-semibold text-white/80 transition-colors hover:text-white relative group"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
                 </button>
               ))}
             </div>
           </div>
 
           <div className="hidden items-center gap-4 md:flex">
-            <div className="flex items-center gap-2 text-primary">
+            <div className="flex items-center gap-2 text-blue-100">
               <Clock size={18} />
               <span className="text-sm font-bold">Mon – Sat: 5:00 PM – 7:00 PM</span>
             </div>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-900/20 transition-all hover:bg-primary-hover active:scale-95"
+              className="rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary shadow-lg transition-all hover:bg-blue-50 active:scale-95"
             >
               Book Now
             </button>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="text-slate-900 md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X /> : <Menu />}
+          <button className="text-white md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
@@ -159,7 +154,7 @@ export default function App() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="border-t border-slate-100 bg-white md:hidden"
+              className="border-t border-white/10 bg-primary md:hidden"
             >
               <div className="flex flex-col gap-4 p-6">
                 {[
@@ -175,7 +170,7 @@ export default function App() {
                       scrollToSection(item.id);
                       setIsMenuOpen(false);
                     }}
-                    className="text-left text-lg font-semibold text-slate-900 hover:text-primary"
+                    className="text-left text-lg font-semibold text-white/90 hover:text-white"
                   >
                     {item.label}
                   </button>
@@ -192,13 +187,13 @@ export default function App() {
         <div className="mx-auto flex h-full max-w-7xl flex-col md:flex-row md:items-center">
           
           {/* Text Content */}
-          <div className="relative z-10 w-full px-4 pt-16 pb-10 md:w-1/2 md:px-8 md:pt-0">
+          <div className="relative z-10 w-full px-4 pt-32 pb-10 md:w-[45%] md:px-8 md:pt-20">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-primary mb-8">
+              <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-primary mb-10 mt-12">
                 <span className="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
                 Paediatric Specialty Clinic
               </span>
@@ -227,7 +222,7 @@ export default function App() {
           </div>
 
           {/* Image Content */}
-          <div className="relative h-[400px] w-full md:h-full md:w-1/2">
+          <div className="relative h-[450px] w-full md:h-full md:w-[60%] md:ml-[-5%]">
             <motion.div 
               initial={{ opacity: 0, scale: 1.1 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -237,7 +232,7 @@ export default function App() {
               <img 
                 src="https://static.wixstatic.com/media/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg/v1/fill/w_1920,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3006e6_863765ceda53413487c88c0cdb4e27bc~mv2.jpeg" 
                 alt="Trusted Paediatric Care"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-right"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent md:block hidden"></div>
