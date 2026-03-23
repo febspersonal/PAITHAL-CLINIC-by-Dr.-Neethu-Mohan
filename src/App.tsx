@@ -99,7 +99,7 @@ export default function App() {
               <img 
                 src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png/v1/crop/x_34,y_10,w_466,h_456/fill/w_95,h_92,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2026-01-02-removebg-preview.png" 
                 alt="Paithal Clinic Logo" 
-                className="h-10 w-auto object-contain brightness-0 invert"
+                className="h-16 w-auto object-contain brightness-0 invert"
                 referrerPolicy="no-referrer"
               />
               <div className="flex flex-col">
@@ -488,11 +488,11 @@ export default function App() {
       <footer className="bg-slate-950 py-20 text-slate-500 border-t border-white/5">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <img 
                 src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png/v1/crop/x_34,y_10,w_466,h_456/fill/w_95,h_92,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2026-01-02-removebg-preview.png" 
                 alt="Paithal Clinic Logo" 
-                className="h-12 w-auto object-contain brightness-0 invert opacity-90"
+                className="h-20 w-auto object-contain brightness-0 invert opacity-90"
                 referrerPolicy="no-referrer"
               />
               <div className="text-left">
