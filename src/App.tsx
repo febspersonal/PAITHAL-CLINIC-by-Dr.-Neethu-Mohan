@@ -427,8 +427,6 @@ export default function App() {
           <div className="grid gap-20 lg:grid-cols-2">
             <div>
               <h2 className="text-sm font-bold uppercase tracking-widest text-blue-400 mb-6">Get in Touch</h2>
-
-                <span className="text-blue-400 italic">Reach out to us</span>
               </p>
 
               <div className="mt-16 space-y-10">
@@ -437,7 +435,7 @@ export default function App() {
                     <Phone size={32} />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-400 uppercase tracking-wider">Call Us</p>
+                    <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Call Us</p>
                     <p className="mt-2 text-2xl font-bold text-white tracking-tight">+91 85472 25042</p>
                   </div>
                 </div>
@@ -447,7 +445,7 @@ export default function App() {
                     <MapPin size={32} />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-400 uppercase tracking-wider">Visit Us</p>
+                    <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Visit Us</p>
                     <p className="mt-2 text-xl font-bold text-white leading-relaxed">
                       East of Town LP School, Chakkarakulam<br />
                       Cherthala, Kerala – 688524
@@ -460,7 +458,7 @@ export default function App() {
                     <Clock size={32} />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-400 uppercase tracking-wider">Clinic Hours</p>
+                    <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Clinic Hours</p>
                     <p className="mt-2 text-xl font-bold text-white">Mon – Sat: 5:00 PM – 7:00 PM</p>
                     <p className="mt-1 text-sm text-slate-500 italic">Sunday: Closed</p>
                   </div>
