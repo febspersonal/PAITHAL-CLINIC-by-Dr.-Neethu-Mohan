@@ -14,7 +14,8 @@ import {
   X,
   ChevronRight,
   GraduationCap,
-  Briefcase
+  Briefcase,
+  History
 } from 'lucide-react';
 
 const SERVICES = [
@@ -278,7 +279,7 @@ export default function App() {
       {/* Doctor Section */}
       <section id="doctor" className="bg-white pt-12 md:pt-16 pb-16 md:pb-20 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
+          <div className="grid gap-16 lg:grid-cols-12 lg:items-start">
             
             {/* Image Column */}
             <div className="relative lg:col-span-5">
@@ -339,7 +340,7 @@ export default function App() {
                     <div className="absolute top-0 right-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-all"></div>
                     <div className="flex items-center gap-3 mb-6 relative z-10">
                       <Briefcase className="text-primary" size={20} />
-                      <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Current Practice</h4>
+                      <h4 className="text-base font-bold uppercase tracking-widest text-slate-900">Current Practice</h4>
                     </div>
                     <div className="space-y-6 relative z-10">
                       <div>
@@ -351,8 +352,8 @@ export default function App() {
                           <Clock size={20} />
                         </div>
                         <div>
-                          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">OPD Hours</p>
-                          <p className="text-sm font-bold text-slate-700 mt-1 leading-relaxed">{EXPERIENCE.current.hours}</p>
+                          <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">OPD Hours</p>
+                          <p className="text-base font-bold text-slate-700 mt-1 leading-relaxed">{EXPERIENCE.current.hours}</p>
                         </div>
                       </div>
                     </div>
@@ -362,11 +363,12 @@ export default function App() {
                     {/* Previous Experience */}
                     <div className="space-y-6">
                       <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Previous Experience</h4>
+                        <History className="text-primary" size={20} />
+                        <h4 className="text-base font-bold uppercase tracking-widest text-slate-900">Previous Experience</h4>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {EXPERIENCE.previous.map((exp, i) => (
-                          <span key={i} className="rounded-xl bg-slate-50 border border-slate-100 px-4 py-2 text-xs font-bold text-slate-600 hover:bg-white hover:shadow-md transition-all cursor-default">
+                          <span key={i} className="rounded-xl bg-slate-50 border border-slate-100 px-4 py-2.5 text-sm font-bold text-slate-600 hover:bg-white hover:shadow-md transition-all cursor-default">
                             {exp}
                           </span>
                         ))}
@@ -377,13 +379,13 @@ export default function App() {
                     <div className="space-y-6">
                       <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
                         <GraduationCap className="text-primary" size={20} />
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Qualifications</h4>
+                        <h4 className="text-base font-bold uppercase tracking-widest text-slate-900">Qualifications</h4>
                       </div>
                       <ul className="space-y-5">
                         {EDUCATION.map((edu, i) => (
                           <li key={i} className="group">
-                            <p className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors">{edu.degree}</p>
-                            <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">{edu.institution} • {edu.batch}</p>
+                            <p className="text-base font-bold text-slate-900 group-hover:text-primary transition-colors">{edu.degree}</p>
+                            <p className="text-sm text-slate-500 mt-1.5 leading-relaxed">{edu.institution} • {edu.batch}</p>
                           </li>
                         ))}
                       </ul>
@@ -477,49 +479,62 @@ export default function App() {
                     <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Clinic Hours</p>
                     <p className="mt-2 text-lg font-bold text-white">Mon – Sat: 5:00 PM – 7:00 PM</p>
                     <p className="mt-1 text-sm text-slate-500 italic">Sunday: Closed</p>
+                    <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.253018244431!2d76.3331!3d9.686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b087f0025450001%3A0x7d00000000000000!2sPaithal%20Clinic!5e0!3m2!1sen!2sin!4v1711450000000!5m2!1sen!2sin"
+                        width="100%"
+                        height="250"
+                        style={{ border: 0 }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Clinic Location"
+                        className="grayscale-[20%] opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                      ></iframe>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-[40px] bg-white/5 p-10 md:p-12 backdrop-blur-xl border border-white/10 shadow-2xl">
-              <h3 className="font-serif text-3xl font-semibold text-white mb-8">Book an Appointment</h3>
-              <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid gap-8 md:grid-cols-2">
-                  <div className="space-y-3">
-                    <label className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Parent Name</label>
+            <div className="rounded-[40px] bg-white/5 p-8 md:p-10 backdrop-blur-xl border border-white/10 shadow-2xl">
+              <h3 className="font-serif text-3xl font-semibold text-white mb-6">Book an Appointment</h3>
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Parent Name</label>
                     <input 
                       type="text" 
-                      className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-lg placeholder:text-slate-600"
+                      className="w-full rounded-2xl bg-white/5 px-6 py-3.5 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600"
                       placeholder="Your Name"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Child's Name</label>
+                  <div className="space-y-2">
+                    <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Child's Name</label>
                     <input 
                       type="text" 
-                      className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-lg placeholder:text-slate-600"
+                      className="w-full rounded-2xl bg-white/5 px-6 py-3.5 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600"
                       placeholder="Child's Name"
                     />
                   </div>
                 </div>
-                <div className="space-y-3">
-                  <label className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Phone Number</label>
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Phone Number</label>
                   <input 
                     type="tel" 
-                    className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-lg placeholder:text-slate-600"
+                    className="w-full rounded-2xl bg-white/5 px-6 py-3.5 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600"
                     placeholder="Your Phone Number"
                   />
                 </div>
-                <div className="space-y-3">
-                  <label className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Message (Optional)</label>
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Message (Optional)</label>
                   <textarea 
-                    rows={4}
-                    className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-lg placeholder:text-slate-600 resize-none"
+                    rows={3}
+                    className="w-full rounded-2xl bg-white/5 px-6 py-3.5 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600 resize-none"
                     placeholder="Any specific concerns?"
                   ></textarea>
                 </div>
-                <button className="w-full rounded-2xl bg-blue-600 py-5 font-bold text-white text-lg shadow-2xl shadow-blue-900/50 transition-all hover:bg-blue-500 hover:-translate-y-1 active:scale-[0.98]">
+                <button className="w-full rounded-2xl bg-blue-600 py-4 font-bold text-white text-base shadow-2xl shadow-blue-900/50 transition-all hover:bg-blue-500 hover:-translate-y-1 active:scale-[0.98]">
                   Send Request
                 </button>
               </form>
