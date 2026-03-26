@@ -471,27 +471,30 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-8 group">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-blue-400 transition-all group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 flex-shrink-0">
-                    <Clock size={32} />
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Clinic Hours</p>
-                    <p className="mt-2 text-lg font-bold text-white">Mon – Sat: 5:00 PM – 7:00 PM</p>
-                    <p className="mt-1 text-sm text-slate-500 italic">Sunday: Closed</p>
-                    <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.253018244431!2d76.3331!3d9.686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b087f0025450001%3A0x7d00000000000000!2sPaithal%20Clinic!5e0!3m2!1sen!2sin!4v1711450000000!5m2!1sen!2sin"
-                        width="100%"
-                        height="250"
-                        style={{ border: 0 }}
-                        allowFullScreen={true}
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Clinic Location"
-                        className="grayscale-[20%] opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-                      ></iframe>
+                <div className="space-y-10">
+                  <div className="flex items-start gap-8 group">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-blue-400 transition-all group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 flex-shrink-0">
+                      <Clock size={32} />
                     </div>
+                    <div className="pt-1">
+                      <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Clinic Hours</p>
+                      <p className="mt-2 text-lg font-bold text-white">Mon – Sat: 5:00 PM – 7:00 PM</p>
+                      <p className="mt-1 text-sm text-slate-500 italic">Sunday: Closed</p>
+                    </div>
+                  </div>
+                  
+                  <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.253018244431!2d76.3331!3d9.686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b087f0025450001%3A0x7d00000000000000!2sPaithal%20Clinic!5e0!3m2!1sen!2sin!4v1711450000000!5m2!1sen!2sin"
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      allowFullScreen={true}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Clinic Location"
+                      className="grayscale-[20%] opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                    ></iframe>
                   </div>
                 </div>
               </div>
