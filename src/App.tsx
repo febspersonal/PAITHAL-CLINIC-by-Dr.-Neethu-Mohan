@@ -185,23 +185,23 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative flex min-h-[600px] flex-col md:block md:h-[650px] overflow-hidden pt-20 md:pt-0 bg-white">
+      <section id="home" className="relative flex min-h-[550px] flex-col md:block md:h-[650px] overflow-hidden pt-12 md:pt-0 bg-white">
         {/* Desktop Layout: Split View */}
         <div className="mx-auto flex h-full max-w-7xl flex-col md:flex-row md:items-center">
           
           {/* Text Content */}
-          <div className="relative z-10 w-full px-4 pt-32 pb-10 md:w-[45%] md:px-8 md:pt-20">
+          <div className="relative z-10 w-full px-4 pt-20 pb-10 md:w-[45%] md:px-8 md:pt-20">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
 
-              <h1 className="font-serif text-5xl lg:text-7xl font-semibold leading-[1.1] tracking-tight text-slate-900 mb-8">
+              <h1 className="font-serif text-5xl lg:text-7xl font-semibold leading-[1.1] tracking-tight text-slate-900 mb-6 md:mb-8">
                 Expert Care for <br />
                 <span className="italic text-primary">Your Little Ones</span>
               </h1>
-              <p className="text-xl leading-relaxed text-slate-600 max-w-lg font-medium mb-12">
+              <p className="text-xl leading-relaxed text-slate-600 max-w-lg font-medium mb-8 md:mb-12">
                 At Paithal Clinic, we provide compassionate, expert paediatric care in a nurturing environment designed for your child's comfort.
               </p>
               <div className="flex flex-wrap gap-5">
@@ -242,7 +242,7 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-white pt-32 pb-16 md:pb-20">
+      <section id="about" className="bg-white pt-16 md:pt-20 pb-10 md:pb-12">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Who We Are</h2>
@@ -257,7 +257,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="mt-24 grid gap-10 md:grid-cols-3">
+          <div className="mt-16 grid gap-10 md:grid-cols-3">
             {[
               { title: "5-Star Rated", desc: "Highly recommended paediatric care in the region.", icon: ShieldCheck, color: "bg-blue-50 text-blue-600" },
               { title: "Child Friendly", desc: "A warm environment designed to make children feel safe.", icon: Baby, color: "bg-amber-50 text-amber-600" },
@@ -276,7 +276,7 @@ export default function App() {
       </section>
 
       {/* Doctor Section */}
-      <section id="doctor" className="bg-white pt-16 md:pt-20 pb-32 overflow-hidden">
+      <section id="doctor" className="bg-white pt-12 md:pt-16 pb-16 md:pb-20 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
             
@@ -391,7 +391,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="mt-16 flex items-center gap-6">
+                <div className="mt-12 flex items-center gap-6">
                   <button 
                     onClick={() => scrollToSection('contact')}
                     className="rounded-full bg-slate-900 px-8 py-4 text-sm font-bold text-white transition-all hover:bg-slate-800 hover:-translate-y-1 active:scale-95"
@@ -407,9 +407,9 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="bg-slate-50 py-32">
+      <section id="services" className="bg-slate-50 pt-12 md:pt-16 pb-20 md:pb-24">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Our Services</h2>
             <p className="font-serif text-4xl font-semibold text-slate-900">Comprehensive healthcare for your little ones.</p>
           </div>
@@ -436,7 +436,7 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="bg-slate-900 py-32 text-white relative overflow-hidden">
+      <section id="contact" className="bg-slate-900 py-16 md:py-24 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 -mr-32 -mt-32 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 -ml-32 -mb-32 h-96 w-96 rounded-full bg-emerald-600/10 blur-3xl"></div>
         
