@@ -242,7 +242,7 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-white py-32">
+      <section id="about" className="bg-white pt-32 pb-16 md:pb-20">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Who We Are</h2>
@@ -276,7 +276,7 @@ export default function App() {
       </section>
 
       {/* Doctor Section */}
-      <section id="doctor" className="bg-white py-32 overflow-hidden">
+      <section id="doctor" className="bg-white pt-16 md:pt-20 pb-32 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
             
